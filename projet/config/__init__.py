@@ -31,6 +31,6 @@ def setup(**kargs):
     if not shutil.which(CPOPTIMIZER_EXEC):
         if sys.platform == 'darwin':  # OS X Mikaël, temporaire
             os.environ['PATH'] += \
-              ':/Users/msiala/Applications/CPLEX_Studio128/cpoptimizer/bin/x86-64_osx'
+              ':\Program Files\IBM\ILOG\CPLEX_Studio128\cpoptimizer\bin\x64_win64'
         else:
             os.environ['PATH'] += ':' + INSA_CPOPTIMIZER_PATH
