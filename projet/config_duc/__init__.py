@@ -12,10 +12,10 @@ DEFAULT_STUDENT_PARAMETERS = {
 CPOPTIMIZER_EXEC = "cpoptimizer"
 
 INSA_CPOPTIMIZER_PATH = \
-    '/usr/local/insa/ibm_cplex_studio-12.8/cpoptimizer/bin/x86-64_linux'
+    ':/usr/local/insa/ibm_cplex_studio-12.8/cpoptimizer/bin/x86-64_linux'
 
 KIHANSI_CPOOPTIMIZER_PATH = \
-    '/home/kihansi/Projects/insa/CPLEX_Studio128/cpoptimizer/bin/x86-64_linux'
+    ':/home/kihansi/Projects/insa/CPLEX_Studio128/cpoptimizer/bin/x86-64_linux'
 
 def setup(**kargs):
     # Default parameters for students:
@@ -30,11 +30,14 @@ def setup(**kargs):
 
     # Switch to local context
     set_default(LOCAL_CONTEXT)
+    print('toto')
     if not shutil.which(CPOPTIMIZER_EXEC):
+        print('platform: ', sys.platform)
         if sys.platform == 'darwin':  # OS X Mikaël, temporaire
             os.environ['PATH'] += \
               ':\Program Files\IBM\ILOG\CPLEX_Studio128\cpoptimizer\bin\x64_win64'
         if sys.platform == 'linux':
+            print('Use path : ', KIHANSI_CPOOPTIMIZER_PATH)
             os.environ['PATH'] += KIHANSI_CPOOPTIMIZER_PATH
         else:
             os.environ['PATH'] += ':' + INSA_CPOPTIMIZER_PATH
