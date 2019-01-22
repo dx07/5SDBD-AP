@@ -30,14 +30,12 @@ def setup(**kargs):
 
     # Switch to local context
     set_default(LOCAL_CONTEXT)
-    print('toto')
     if not shutil.which(CPOPTIMIZER_EXEC):
         print('platform: ', sys.platform)
         if sys.platform == 'darwin':  # OS X Mikaël, temporaire
             os.environ['PATH'] += \
               ':\Program Files\IBM\ILOG\CPLEX_Studio128\cpoptimizer\bin\x64_win64'
         if sys.platform == 'linux':
-            print('Use path : ', KIHANSI_CPOOPTIMIZER_PATH)
             os.environ['PATH'] += KIHANSI_CPOOPTIMIZER_PATH
         else:
             os.environ['PATH'] += ':' + INSA_CPOPTIMIZER_PATH
