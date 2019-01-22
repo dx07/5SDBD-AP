@@ -37,7 +37,7 @@ def generate_road_network(limit=800, size=1000):
 
     # for high density choose ones counter depth with highest number of squares randomly
     while(True):
-     	node=random.randrange(max(glob.nodeIndex))
+    	node=random.randrange(max(glob.nodeIndex))
     	if len(glob.nodeIndex)>limit: # limit network generation by number of nodes
     		break
 
